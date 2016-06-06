@@ -20,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-Create a '.zenv' file at the root of your project:
+Create a `.zenv` file at the root of your project:
 
 ```ruby
 {
