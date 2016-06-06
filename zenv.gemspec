@@ -10,8 +10,8 @@ Gem::Specification.new do |spec|
   spec.email         = ["me@austinschneider.com"]
 
   spec.summary       = 'Zen Env'
-  spec.description   = 'Simple and flexible approach to loading env vars'
-  spec.homepage      = ''
+  spec.description   = 'Simple and flexible approach to loading environment variables.'
+  spec.homepage      = 'https://github.com/austinthecoder/zenv'
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   spec.bindir        = "exe"
@@ -20,4 +20,5 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.11"
   spec.add_development_dependency "rake", "~> 10.0"
+  spec.add_development_dependency "rspec", "~> 3.4"
 end

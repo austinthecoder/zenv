@@ -1,6 +1,6 @@
-# Zenv
+# ZEN ENV
 
-Simple and flexible approach to loading env vars
+Simple and flexible approach to loading environment variables.
 
 ## Installation
 
@@ -20,7 +20,41 @@ Or install it yourself as:
 
 ## Usage
 
-Coming soon.
+Create a '.zenv' file at the root of your project:
+
+```ruby
+{
+  default: {
+    KEY: 'value',
+    ...
+  },
+}
+```
+
+The `:default` namespace will be loaded into `ENV`.
+
+### Namespaces
+
+To load a different set of environment variables, add another "namespace":
+
+```ruby
+{
+  default: {
+    KEY: 'value',
+    ...
+  },
+  other: {
+    KEY: 'other value',
+    ...
+  }
+}
+```
+
+Specify the namespace in `ZENV`. E.g. `ZENV=other rails console`.
+
+### Pre-loading
+
+If environment variables need to be loaded _before_ your application is loaded, run the command with `zenv`. For example, if you're running the puma web server and it depends on `PORT`, run `zenv puma`.
 
 ## Development
 
@@ -30,4 +64,4 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/zenv.
+Bug reports and pull requests are welcome on GitHub at https://github.com/austinthecoder/zenv.
