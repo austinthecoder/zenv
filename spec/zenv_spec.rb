@@ -1,4 +1,4 @@
-RSpec.describe Zenv do
+RSpec.describe 'Zenv' do
   after do
     ENV.delete 'KEY'
     ENV.delete 'ZENV'
