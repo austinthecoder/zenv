@@ -2,6 +2,10 @@
 
 Simple and flexible approach to loading environment variables.
 
+## Status
+
+[![Build Status](https://travis-ci.org/austinthecoder/zenv.svg?branch=master)](https://travis-ci.org/austinthecoder/zenv)
+
 ## Installation
 
 Add this line to your application's Gemfile:
