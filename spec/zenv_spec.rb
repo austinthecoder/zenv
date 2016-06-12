@@ -5,16 +5,18 @@ RSpec.describe 'Zenv' do
     Object.send :remove_const, :Zenv
   end
 
-  context 'when the ZENV env var is not set' do
-    it 'loads env vars from the :default namespace' do
-      expect { load 'zenv.rb' }.to change { ENV['KEY'] }.from(nil).to 'default value'
+  describe "require'ing the gem" do
+    context 'when the ZENV environment variable is not set' do
+      it 'loads environment variables from the :default namespace' do
+        expect { load 'zenv.rb' }.to change { ENV['KEY'] }.from(nil).to 'default value'
+      end
     end
-  end
 
-  context 'when the ZENV env var is set' do
-    it 'loads env vars from the specified namespace' do
-      ENV['ZENV'] = 'other'
-      expect { load 'zenv.rb' }.to change { ENV['KEY'] }.from(nil).to 'other value'
+    context 'when the ZENV environment variable specifies a namespace' do
+      it 'loads environment variables from the specified namespace' do
+        ENV['ZENV'] = 'other'
+        expect { load 'zenv.rb' }.to change { ENV['KEY'] }.from(nil).to 'other value'
+      end
     end
   end
 end
