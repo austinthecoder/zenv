@@ -5,8 +5,6 @@ module Zenv
   @pathname = Pathname.new '.zenv'
 
   class << self
-    attr_writer :pathname
-
     private
 
     attr_reader :pathname, :namespace_loaded
@@ -34,7 +32,7 @@ module Zenv
         ENV[key.to_s] = value
       end
 
-      namespace_loaded = namespace
+      @namespace_loaded = namespace
 
       puts "[Zenv] loaded #{namespace_loaded.inspect}"
     end
