@@ -2,6 +2,13 @@
 
 Simple and flexible approach to loading environment variables.
 
+**How is this different than Dotenv?**
+
+* ZEN ENV loads earlier, so there's no special handling needed for Rails apps.
+* The `.zenv` file is Ruby, which allows for more flexibility.
+* Env vars should specify the Rails env, not the other way around.
+* Does not support overrides via multiple `.zenv` files. If you want to share env vars across multiple namespaces, it's Ruby, DRY it up.
+
 ## Status
 
 [![Build Status](https://travis-ci.org/austinthecoder/zenv.svg?branch=master)](https://travis-ci.org/austinthecoder/zenv)
@@ -59,6 +66,15 @@ Specify the namespace in `ZENV`. E.g. `ZENV=other rails console`.
 ### Pre-loading
 
 If environment variables need to be loaded _before_ your application is loaded, run the command with `zenv`. For example, if you're running the puma web server and it depends on `PORT`, run `zenv puma`.
+
+### Test environment
+
+You probably don't want the default namespace loaded for tests. Create a "test" namespace and put this at the top of your tests (if using RSpec, put it at the top of `spec_helper.rb`):
+
+```ruby
+ENV['ZENV'] = 'test'
+require 'zenv'
+```
 
 ## Development
 
