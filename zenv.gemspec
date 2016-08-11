@@ -1,15 +1,15 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'zenv/version'
+require 'zenv'
 
 Gem::Specification.new do |spec|
   spec.name          = "zenv"
-  spec.version       = Zenv::VERSION
+  spec.version       = Zenv.version
   spec.authors       = ["Austin Schneider"]
   spec.email         = ["me@austinschneider.com"]
 
-  spec.summary       = 'Zen Env'
+  spec.summary       = 'ZEN ENV'
   spec.description   = 'Simple and flexible approach to loading environment variables.'
   spec.homepage      = 'https://github.com/austinthecoder/zenv'
 

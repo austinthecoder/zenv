@@ -1,8 +1,0 @@
-{
-  default: {
-    KEY: 'default value'
-  },
-  other: {
-    KEY: 'other value'
-  }
-}

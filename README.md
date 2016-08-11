@@ -31,7 +31,7 @@ Or install it yourself as:
 
 ## Usage
 
-Create a `.zenv` file at the root of your project:
+Create a `.zenv` or `.zenv.rb` file at the root of your project:
 
 ```ruby
 {
