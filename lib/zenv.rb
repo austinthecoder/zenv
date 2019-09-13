@@ -1,11 +1,6 @@
 require 'pathname'
 
 module Zenv
-  @available_pathnames = [
-    Pathname.new('.zenv'),
-    Pathname.new('.zenv.rb'),
-  ].freeze
-
   class << self
     def version
       '1.1.0'
@@ -13,7 +8,7 @@ module Zenv
 
     private
 
-    attr_reader :available_pathnames, :namespace_loaded
+    attr_reader :namespace_loaded
 
     def load
       namespace = ENV['ZENV']&.to_sym || :default
@@ -22,6 +17,11 @@ module Zenv
         warn "[Zenv] skipping #{namespace.inspect}, already loaded #{namespace_loaded.inspect}"
       end
 
+      available_pathnames = [
+        Pathname.new('.zenv'),
+        Pathname.new('.zenv.rb'),
+      ]
+
       pathname = available_pathnames.find(&:exist?)
 
       unless pathname
@@ -29,9 +29,9 @@ module Zenv
         return
       end
 
-      data = eval pathname.read
+      data = eval(pathname.read)
 
-      unless data.key? namespace
+      unless data.key?(namespace)
         warn "[Zenv] missing #{namespace.inspect} in .zenv"
         return
       end
