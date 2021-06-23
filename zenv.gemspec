@@ -8,6 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = Zenv.version
   spec.authors       = ["Austin Schneider"]
   spec.email         = ["me@austinschneider.com"]
+  spec.required_ruby_version = Gem::Requirement.new(">= 2.3.1")
 
   spec.summary       = 'ZEN ENV'
   spec.description   = 'Simple and flexible approach to loading environment variables.'
